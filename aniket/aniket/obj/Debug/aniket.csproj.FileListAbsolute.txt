@@ -1,0 +1,15 @@
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\bin\Debug\aniket.exe.config
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\obj\Debug\aniket.csprojResolveAssemblyReference.cache
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\obj\Debug\MainWindow.baml
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\obj\Debug\MainWindow.g.cs
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\obj\Debug\App.g.cs
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\obj\Debug\aniket_Content.g.cs
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\obj\Debug\aniket_MarkupCompile.cache
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\obj\Debug\aniket.g.resources
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\obj\Debug\aniket.Properties.Resources.resources
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\obj\Debug\aniket.csproj.GenerateResource.Cache
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\bin\Debug\aniket.exe
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\bin\Debug\aniket.pdb
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\bin\Debug\libpxcclr.cs.dll
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\obj\Debug\aniket.exe
+C:\Users\Aniket\Documents\EECS 481\faceplay\aniket\aniket\obj\Debug\aniket.pdb
