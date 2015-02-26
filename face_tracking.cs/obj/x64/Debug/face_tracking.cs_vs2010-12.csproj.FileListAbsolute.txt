@@ -1,0 +1,10 @@
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\bin\x64\Debug\face_tracking.cs.exe
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\bin\x64\Debug\face_tracking.cs.pdb
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\bin\x64\Debug\libpxcclr.dll
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\obj\x64\Debug\face_tracking.cs.MainForm.resources
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\obj\x64\Debug\face_tracking.cs.Properties.Resources.resources
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\obj\x64\Debug\face_tracking.cs_vs2010-12.csproj.GenerateResource.Cache
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\obj\x64\Debug\face_tracking.cs.exe
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\obj\x64\Debug\face_tracking.cs.pdb
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\obj\x64\Debug\face_tracking.cs_vs2010-12.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\bin\x64\Debug\InputSimulator.dll

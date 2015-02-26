@@ -15,6 +15,14 @@ public class mouseDriven
     [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
 
+    //PITCH IS UP AND DOWN
+    //ROLL IS TILT SIDEWAYS
+    //YAW IS TURN LEFT/RIGHT
+    public static Single pitch = 0;
+    public static Single roll = 0;
+    public static Single yaw = 0;
+    public static bool fid = true;
+
     public bool _ShouldMouseUp = false;
     public bool _ShouldMouseDown = false;
     public bool _ShouldMouseLeft = false;
@@ -28,7 +36,7 @@ public class mouseDriven
     public bool _ShouldScrollDown = false;
     public bool _ShouldRun = true;
     public System.Timers.Timer aTimer;
-    public int mouseSens = 10;
+    public int mouseSens = 1;
 
     private const int MOUSEEVENTF_LEFTDOWN = 0x02;
     private const int MOUSEEVENTF_LEFTUP = 0x04;
@@ -70,15 +78,15 @@ public class mouseDriven
         mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, Cursor.Position.X, Cursor.Position.Y, 0, 0);
         mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, Cursor.Position.X, Cursor.Position.Y, 0, 0);
     }
-	
-	public void exitProgram()
-	{
-		
-	}
+
+    public void exitProgram()
+    {
+        InputSimulator.SimulateKeyDown(VirtualKeyCode.RETURN);
+    }
 
     public void checkInputs()
     {
-        if (InputSimulator.IsKeyDown(VirtualKeyCode.UP))
+        if (InputSimulator.IsKeyDown(VirtualKeyCode.UP) || pitch >= 10)
         {
             _ShouldMouseUp = true;
         }
@@ -87,7 +95,7 @@ public class mouseDriven
             _ShouldMouseUp = false;
         }
 
-        if (InputSimulator.IsKeyDown(VirtualKeyCode.DOWN))
+        if (InputSimulator.IsKeyDown(VirtualKeyCode.DOWN) || pitch <= -2)
         {
             _ShouldMouseDown = true;
         }
@@ -96,7 +104,7 @@ public class mouseDriven
             _ShouldMouseDown = false;
         }
 
-        if (InputSimulator.IsKeyDown(VirtualKeyCode.LEFT))
+        if (InputSimulator.IsKeyDown(VirtualKeyCode.LEFT) || roll <= -20)
         {
             _ShouldMouseLeft = true;
         }
@@ -105,7 +113,7 @@ public class mouseDriven
             _ShouldMouseLeft = false;
         }
 
-        if (InputSimulator.IsKeyDown(VirtualKeyCode.RIGHT))
+        if (InputSimulator.IsKeyDown(VirtualKeyCode.RIGHT) || roll >= 20)
         {
             _ShouldMouseRight = true;
         }
@@ -146,6 +154,9 @@ public class mouseDriven
 
     public void OnTimedEvent(Object source, ElapsedEventArgs e)
     {
+
+       // Console.WriteLine("PITCH: " + mouseDriven.pitch + " YAW: " + mouseDriven.yaw + " ROLL: " + mouseDriven.roll);
+
         checkInputs();
 
         if (_ShouldMouseDown && _ShouldMouseUp)
