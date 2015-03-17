@@ -10,3 +10,5 @@ C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\obj\x64\Debug\emot
 C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs_vs2010-12.csproj.GenerateResource.Cache
 C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs.exe
 C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs.pdb
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\bin\x64\Debug\emotion_viewer.cs.exe.config
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs_vs2010-12.csprojResolveAssemblyReference.cache
