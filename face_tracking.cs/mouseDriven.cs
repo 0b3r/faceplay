@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Timers;
-using WindowsInput;
 using System.IO;
 using System.Runtime.InteropServices;
 
@@ -84,9 +83,9 @@ public class mouseDriven
 
     public void exitProgram()
     {
-        InputSimulator.SimulateKeyDown(VirtualKeyCode.RETURN);
+       // InputSimulator.SimulateKeyDown(VirtualKeyCode.RETURN);
     }
-
+    /*
     public void checkInputs()
     {
         if (InputSimulator.IsKeyDown(VirtualKeyCode.UP) || pitch >= 10)
@@ -153,7 +152,7 @@ public class mouseDriven
             _IsRightClicking = false;
         }
 
-    }
+    }*/
 
     public void MoveMouseUp()
     {
@@ -174,13 +173,13 @@ public class mouseDriven
     {
         Cursor.Position = new Point(Cursor.Position.X + mouseSens, Cursor.Position.Y);
     }
-
+/*
     public void OnTimedEvent(Object source, ElapsedEventArgs e)
     {
 
        // Console.WriteLine("PITCH: " + mouseDriven.pitch + " YAW: " + mouseDriven.yaw + " ROLL: " + mouseDriven.roll);
 
-        checkInputs();
+       // checkInputs();
 
         if (_ShouldMouseDown && _ShouldMouseUp)
         {
@@ -233,4 +232,4 @@ public class mouseDriven
             _ShouldRightClick = false;
         }
     }
-}
+*/}

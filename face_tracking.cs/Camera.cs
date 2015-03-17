@@ -22,10 +22,11 @@ namespace face_tracking.cs
         private float rightLimit = 50;
         private float tiltLeftLimit = -30;
         private float tiltRightLimit = 30;
+        public System.Timers.Timer aTimer;
         mouseDriven mouse;
-        FaceplayWebdriver.Webdriver selenium;
+        Webdriver selenium;
 
-        public Camera(mouseDriven mou, FaceplayWebdriver.Webdriver selen, bool mode, int cfgSens, float cfgUp, float cfgDown, float cfgLeft, float cfgRight, float cfgTiltLeft, float cfgTiltRight)
+        public Camera(mouseDriven mou, Webdriver selen, bool mode, int cfgSens, float cfgUp, float cfgDown, float cfgLeft, float cfgRight, float cfgTiltLeft, float cfgTiltRight)
         {
             mouse = mou;
             selenium = selen;
@@ -341,7 +342,7 @@ namespace face_tracking.cs
             // Console.WriteLine("PITCH: " + mouseDriven.pitch + " YAW: " + mouseDriven.yaw + " ROLL: " + mouseDriven.roll);
 
             checkInputs();
-
+            Console.WriteLine("checkInputs");
             /*if (_ShouldMouseDown && _ShouldMouseUp)
             {
                 Console.WriteLine("Cannot move mouse up and down at the same time.");

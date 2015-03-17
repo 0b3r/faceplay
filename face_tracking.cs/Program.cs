@@ -23,15 +23,20 @@ namespace face_tracking.cs
         [STAThread]
         static void Main()
         {
-            bool setup = true;
             mouseDriven myMouse = new mouseDriven();
-            myMouse.aTimer = new System.Timers.Timer(1);
-            myMouse.aTimer.Elapsed += myMouse.OnTimedEvent;
-            myMouse.aTimer.AutoReset = true;
-            Console.WriteLine("The timer should fire every {0} milliseconds.",
-                 myMouse.aTimer.Interval);
-            myMouse.aTimer.Enabled = true;
+            Webdriver selen = new Webdriver("http://www.google.com");
+            
+            Camera cam = new Camera(myMouse, selen, false, 1, 10, -2, -20, 20, 0, 0);
 
+            bool setup = true;
+            
+            cam.aTimer = new System.Timers.Timer(1);
+            cam.aTimer.Elapsed += cam.OnTimedEvent;
+            cam.aTimer.AutoReset = true;
+            Console.WriteLine("The timer should fire every {0} milliseconds.",
+                 cam.aTimer.Interval);
+            cam.aTimer.Enabled = true;
+            
             if(setup)    //for debugging/keyboard, set this to false before compiling
             {
                 Application.EnableVisualStyles();

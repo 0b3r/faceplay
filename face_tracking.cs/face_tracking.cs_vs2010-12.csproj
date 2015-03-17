@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C42F9346-5D29-46D0-AE79-8C05365A908D}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>face_tracking.cs</RootNamespace>
     <AssemblyName>face_tracking.cs</AssemblyName>
@@ -86,16 +86,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="InputSimulator">
-      <HintPath>..\..\..\..\..\..\Users\user\Documents\Visual Studio 2013\Projects\481project\481project\InputSimulator.dll</HintPath>
-    </Reference>
     <Reference Include="libpxcclr">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(PXCCLRPath)</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="Selenium.WebDriverBackedSelenium">
-      <HintPath>..\net40\Selenium.WebDriverBackedSelenium.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -106,14 +100,11 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="ThoughtWorks.Selenium.Core">
-      <HintPath>..\net40\ThoughtWorks.Selenium.Core.dll</HintPath>
-    </Reference>
     <Reference Include="WebDriver">
-      <HintPath>..\net40\WebDriver.dll</HintPath>
+      <HintPath>packages\Selenium.WebDriver.2.45.0\lib\net40\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver.Support">
-      <HintPath>..\net40\WebDriver.Support.dll</HintPath>
+      <HintPath>packages\Selenium.Support.2.45.0\lib\net40\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +134,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -17,9 +17,9 @@ namespace face_tracking.cs
 
         private bool DisplayDeviceConnection(bool state)
         {
-            mouseDriven.pitch = 0;
-            mouseDriven.roll = 0;
-            mouseDriven.yaw = 0;
+            Camera.pitch = 0;
+            Camera.roll = 0;
+            Camera.yaw = 0;
             if (state)
             {
                 if (!disconnected) form.UpdateStatus("Device Disconnected");
@@ -67,15 +67,15 @@ namespace face_tracking.cs
                 ftl.QueryPoseData(fid, out pose);
                 if(fid > 0)
                 {
-                    mouseDriven.pitch = pose.pitch;
-                    mouseDriven.roll = pose.roll;
-                    mouseDriven.yaw = pose.yaw;
+                    Camera.pitch = pose.pitch;
+                    Camera.roll = pose.roll;
+                    Camera.yaw = pose.yaw;
                 }
                 else
                 {
-                    mouseDriven.pitch = 0;
-                    mouseDriven.roll = 0;
-                    mouseDriven.yaw = 0;
+                    Camera.pitch = 0;
+                    Camera.roll = 0;
+                    Camera.yaw = 0;
                 }
             }
         }
@@ -158,9 +158,9 @@ namespace face_tracking.cs
             if (sts)
             {
                 form.UpdateStatus("Stopped");
-                mouseDriven.pitch = 0;
-                mouseDriven.roll = 0;
-                mouseDriven.yaw = 0;
+                Camera.pitch = 0;
+                Camera.roll = 0;
+                Camera.yaw = 0;
             }
         }
 
@@ -265,9 +265,9 @@ namespace face_tracking.cs
             capture.Dispose();
             face.Dispose();
             session.Dispose();
-            mouseDriven.pitch = 0;
-            mouseDriven.roll = 0;
-            mouseDriven.yaw = 0;
+            Camera.pitch = 0;
+            Camera.roll = 0;
+            Camera.yaw = 0;
             form.UpdateStatus("Stopped");
         }
     }
