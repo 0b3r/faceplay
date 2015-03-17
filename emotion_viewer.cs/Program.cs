@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EmotionDetection.cs
+namespace Emotion_Detection
 {
     static class Program
     {
@@ -25,19 +25,19 @@ namespace EmotionDetection.cs
         {
             mouseDriven myMouse = new mouseDriven();
             Webdriver selen = new Webdriver("http://www.google.com");
-            
-            Camera cam = new Camera(myMouse, selen, false, 1, 10, -2, -20, 20, 0, 0);
+
+            Camera cam = new Camera(myMouse, selen, true, 1, 10, -2, -20, 20, 0, 0);
 
             bool setup = true;
-            
+
             cam.aTimer = new System.Timers.Timer(1);
             cam.aTimer.Elapsed += cam.OnTimedEvent;
             cam.aTimer.AutoReset = true;
             Console.WriteLine("The timer should fire every {0} milliseconds.",
                  cam.aTimer.Interval);
             cam.aTimer.Enabled = true;
-            
-            if(setup)    //for debugging/keyboard, set this to false before compiling
+
+            if (setup)    //for debugging/keyboard, set this to false before compiling
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);

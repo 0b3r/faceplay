@@ -11,6 +11,8 @@ namespace face_tracking.cs
         public static Single pitch = 0;
         public static Single roll = 0;
         public static Single yaw = 0;
+        public static Single x = 50;
+        public static Single y = 50;
 
         private bool useMouse = true;
         private bool canUseMouse = true;
@@ -270,7 +272,7 @@ namespace face_tracking.cs
 
         public void checkInputs()
         {
-            if (/*InputSimulator.IsKeyDown(VirtualKeyCode.UP) || */pitch >= 10)
+            if (/*InputSimulator.IsKeyDown(VirtualKeyCode.UP) || */y <= 45)
             {
                 OnHeadUp();
             }
@@ -279,7 +281,7 @@ namespace face_tracking.cs
                 OnHeadCenter();
             }
 
-            if (/*InputSimulator.IsKeyDown(VirtualKeyCode.DOWN) || */pitch <= -2)
+            if (/*InputSimulator.IsKeyDown(VirtualKeyCode.DOWN) || */y >= 65)
             {
                 OnHeadDown();
             }
@@ -288,7 +290,7 @@ namespace face_tracking.cs
                 OnHeadCenter();
             }
 
-            if (/*InputSimulator.IsKeyDown(VirtualKeyCode.LEFT) || */roll <= -20)
+            if (/*InputSimulator.IsKeyDown(VirtualKeyCode.LEFT) || */x >= 70)
             {
                 OnHeadLeft();
             }
@@ -297,7 +299,7 @@ namespace face_tracking.cs
                 OnHeadCenter();
             }
 
-            if (/*InputSimulator.IsKeyDown(VirtualKeyCode.RIGHT) || */roll >= 20)
+            if (/*InputSimulator.IsKeyDown(VirtualKeyCode.RIGHT) || */x <= 30)
             {
                 OnHeadRight();
             }

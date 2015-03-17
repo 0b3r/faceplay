@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace face_tracking.cs
+namespace Emotion_Detection
 {
-    class FaceTracking
+    
+    class EmotionDetection
     {
+
         private MainForm form;
         private bool disconnected = false;
 
-        public FaceTracking(MainForm form)
+        public EmotionDetection(MainForm form)
         {
             this.form = form;
         }
 
         private bool DisplayDeviceConnection(bool state)
         {
-            Camera.pitch = 0;
-            Camera.roll = 0;
-            Camera.yaw = 0;
             if (state)
             {
                 if (!disconnected) form.UpdateStatus("Device Disconnected");
@@ -46,15 +45,14 @@ namespace face_tracking.cs
         private void DisplayLocation(PXCMEmotion ft)
         {
             uint numFaces = ft.QueryNumFaces();
-            for (uint i = 0; i < numFaces; i++)
-            {
+            for (uint i=0; i<numFaces;i++) {
                 /* Retrieve emotionDet location data */
                 PXCMEmotion.EmotionData[] arrData = new PXCMEmotion.EmotionData[form.NUM_EMOTIONS];
-                if (ft.QueryAllEmotionData(i, arrData) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
-                {
+                if(ft.QueryAllEmotionData(i, arrData) >= pxcmStatus.PXCM_STATUS_NO_ERROR){
                     form.DrawLocation(arrData);
-                    Console.WriteLine(arrData[0].rectangle.x);
-
+                    Console.WriteLine("x: " + arrData[0].rectangle.x + " " + "y: " + arrData[0].rectangle.y);
+                    Camera.x = arrData[0].rectangle.x;
+                    Camera.y = arrData[0].rectangle.y;
                 }
             }
         }
@@ -120,7 +118,7 @@ namespace face_tracking.cs
                         PXCMEmotion ft = pp.QueryEmotion();
                         DisplayPicture(pp.QueryImage(PXCMImage.ImageType.IMAGE_TYPE_COLOR));
                         DisplayLocation(ft);
-
+                            
                         form.UpdatePanel();
                     }
                     pp.ReleaseFrame();
@@ -211,12 +209,12 @@ namespace face_tracking.cs
                 if (sts < pxcmStatus.PXCM_STATUS_NO_ERROR) break;
 
                 PXCMScheduler.SyncPoint.SynchronizeEx(sps);
-                sts = sps[0].Synchronize();
-                if (DisplayDeviceConnection(sts == pxcmStatus.PXCM_STATUS_DEVICE_LOST)) continue;
+                sts=sps[0].Synchronize();
+                if (DisplayDeviceConnection(sts==pxcmStatus.PXCM_STATUS_DEVICE_LOST)) continue;
                 if (sts < pxcmStatus.PXCM_STATUS_NO_ERROR) break;
 
                 /* Display Results */
-                DisplayPicture(capture.QueryImage(images, PXCMImage.ImageType.IMAGE_TYPE_COLOR));
+                DisplayPicture(capture.QueryImage(images,PXCMImage.ImageType.IMAGE_TYPE_COLOR));
                 DisplayLocation(emotionDet);
                 form.UpdatePanel();
             }
