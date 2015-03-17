@@ -21,6 +21,9 @@ public class mouseDriven
     public static Single pitch = 0;
     public static Single roll = 0;
     public static Single yaw = 0;
+    public static Single prevPitch = 0;
+    public static Single prevRoll = 0;
+    public static Single prevYaw = 0;
     public static bool fid = true;
 
     public bool _ShouldMouseUp = false;
@@ -150,6 +153,26 @@ public class mouseDriven
             _IsRightClicking = false;
         }
 
+    }
+
+    public void MoveMouseUp()
+    {
+        Cursor.Position = new Point(Cursor.Position.X, Cursor.Position.Y - mouseSens);
+    }
+
+    public void MoveMouseDown()
+    {
+        Cursor.Position = new Point(Cursor.Position.X, Cursor.Position.Y + mouseSens);
+    }
+
+    public void MoveMouseLeft()
+    {
+        Cursor.Position = new Point(Cursor.Position.X - mouseSens, Cursor.Position.Y);
+    }
+
+    public void MoveMouseRight()
+    {
+        Cursor.Position = new Point(Cursor.Position.X + mouseSens, Cursor.Position.Y);
     }
 
     public void OnTimedEvent(Object source, ElapsedEventArgs e)
