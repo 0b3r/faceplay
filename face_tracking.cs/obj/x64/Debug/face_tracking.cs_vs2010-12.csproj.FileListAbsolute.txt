@@ -24,3 +24,14 @@ C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver
 C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.xml
 C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.Support.pdb
 C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.Support.xml
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs_vs2010-12.csprojResolveAssemblyReference.cache
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs.MainForm.resources
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs.Properties.Resources.resources
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs_vs2010-12.csproj.GenerateResource.Cache
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\bin\x64\Debug\face_tracking.cs.exe
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\bin\x64\Debug\face_tracking.cs.pdb
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\bin\x64\Debug\libpxcclr.dll
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.dll
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.xml
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs.exe
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs.pdb
