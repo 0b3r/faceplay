@@ -11,8 +11,13 @@ namespace Emotion_Detection
             public static Single pitch = 0;
             public static Single roll = 0;
             public static Single yaw = 0;
-            public static Single x = 150;
+            public static Single x = 200;
             public static Single y = 150;
+            public static bool shouldSmile = false;
+            public static bool shouldSurprise = false;
+            private bool isSmiling = false;
+            private bool isSurprise = false;
+            public static bool shouldNeutral = true;
 
             private bool useMouse = true;
             private bool canUseMouse = true;
@@ -243,10 +248,13 @@ namespace Emotion_Detection
                     //call faceplaywebdriver focuslocationbar
                     headCentered = false;
                 }
+                isSmiling = true;
+                shouldNeutral = false;
             }
 
             public void OnSurprise()
             {
+                Console.WriteLine("SURPRISE");
                 if(useMouse)
                 {
                     mouse._ShouldRightClick = true;
@@ -258,6 +266,14 @@ namespace Emotion_Detection
                     //call faceplaywebdriver focuslocationbar
                     headCentered = false;
                 }
+                isSurprise = true;
+                shouldNeutral = false;
+            }
+
+            public void OnNeutral()
+            {
+                isSmiling = false;
+                isSurprise = false;
             }
 
             public void Configure()
@@ -272,7 +288,7 @@ namespace Emotion_Detection
 
             public void checkInputs()
             {
-                if (/*InputSimulator.IsKeyDown(VirtualKeyCode.UP) || */y <= 100)
+                if (/*InputSimulator.IsKeyDown(VirtualKeyCode.UP) || */y <= upLimit)
                 {
                     OnHeadUp();
                 }
@@ -281,7 +297,7 @@ namespace Emotion_Detection
                     OnHeadCenter();
                 }
 
-                if (/*InputSimulator.IsKeyDown(VirtualKeyCode.DOWN) || */y >= 220)
+                if (/*InputSimulator.IsKeyDown(VirtualKeyCode.DOWN) || */y >= downLimit)
                 {
                     OnHeadDown();
                 }
@@ -290,7 +306,7 @@ namespace Emotion_Detection
                     OnHeadCenter();
                 }
 
-                if (/*InputSimulator.IsKeyDown(VirtualKeyCode.LEFT) || */x >= 270)
+                if (/*InputSimulator.IsKeyDown(VirtualKeyCode.LEFT) || */x >= leftLimit)
                 {
                     OnHeadLeft();
                 }
@@ -299,13 +315,33 @@ namespace Emotion_Detection
                     OnHeadCenter();
                 }
 
-                if (/*InputSimulator.IsKeyDown(VirtualKeyCode.RIGHT) || */x <= 110)
+                if (/*InputSimulator.IsKeyDown(VirtualKeyCode.RIGHT) || */x <= rightLimit)
                 {
                     OnHeadRight();
                 }
                 else
                 {
                     OnHeadCenter();
+                }
+                if(shouldSmile)
+                {
+                    Console.WriteLine("SMILE");
+                    if(!isSmiling)
+                    {
+                        OnSmile();
+                    }
+                }
+                if(shouldSurprise)
+                {
+                    if(!isSurprise)
+                    {
+                        OnSurprise();
+                    }
+                }
+                if(shouldNeutral)
+                {
+                   // Console.WriteLine("NEUTRAL");
+                    OnNeutral();
                 }
                 /*if (InputSimulator.IsKeyDown(VirtualKeyCode.VK_1))
                 {
@@ -344,7 +380,6 @@ namespace Emotion_Detection
                 // Console.WriteLine("PITCH: " + mouseDriven.pitch + " YAW: " + mouseDriven.yaw + " ROLL: " + mouseDriven.roll);
 
                 checkInputs();
-                Console.WriteLine("checkInputs");
                 /*if (_ShouldMouseDown && _ShouldMouseUp)
                 {
                     Console.WriteLine("Cannot move mouse up and down at the same time.");
