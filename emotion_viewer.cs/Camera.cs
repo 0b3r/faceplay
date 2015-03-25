@@ -93,7 +93,6 @@ namespace Emotion_Detection
                 {
                     if(headCentered)
                     {
-                        Console.WriteLine("TAB FORWARD");
                         selenium.TabForward();
                         //call faceplaywebdriver tabforward
                         headCentered = false;
@@ -113,7 +112,6 @@ namespace Emotion_Detection
                 {
                     if(headCentered)
                     {
-                        Console.WriteLine("TAB BACK");
                         selenium.TabBackward();
                         //call faceplaywebdriver tabbackward
                         headCentered = false;
@@ -132,7 +130,6 @@ namespace Emotion_Detection
                 {
                     if(headCentered)
                     {
-                        Console.WriteLine("SCROLL UP");
                         selenium.ScrollUp();
                         //call faceplaywebdriver SCROLL UP
                         headCentered = false;
@@ -151,7 +148,6 @@ namespace Emotion_Detection
                 {
                     if(headCentered)
                     {
-                        Console.WriteLine("SCROLL Down");
                         selenium.ScrollDown();
                         //call faceplaywebdriver SCROLL DOWN
                         headCentered = false;
@@ -170,7 +166,6 @@ namespace Emotion_Detection
                 {
                     if(headCentered)
                     {
-                        Console.WriteLine("TAB FORWARD");
                         selenium.TabForward();
                         //call faceplaywebdriver tabforward
                         headCentered = false;
@@ -189,7 +184,6 @@ namespace Emotion_Detection
                 {
                     if(headCentered)
                     {
-                        Console.WriteLine("TAB BACK");
                         selenium.TabBackward();
                         //call faceplaywebdriver tabbackward
                         headCentered = false;
@@ -208,7 +202,6 @@ namespace Emotion_Detection
                 {
                     if(headCentered)
                     {
-                        Console.WriteLine("SCROLL UP");
                         selenium.ScrollUp();
                         //call faceplaywebdriver SCROLL UP
                         headCentered = false;
@@ -227,7 +220,6 @@ namespace Emotion_Detection
                 {
                     if(headCentered)
                     {
-                        Console.WriteLine("SCROLL Down");
                         selenium.ScrollDown();
                         //call faceplaywebdriver SCROLL DOWN
                         headCentered = false;
@@ -239,11 +231,10 @@ namespace Emotion_Detection
             {
                 if(useMouse)
                 {
-                    mouse._ShouldLeftClick = true;
+                    mouse.leftClick();
                 }
                 else
                 {
-                    Console.WriteLine("FOCUS LOCATION BAR");
                     selenium.FocusLocationBar();
                     //call faceplaywebdriver focuslocationbar
                     headCentered = false;
@@ -254,14 +245,12 @@ namespace Emotion_Detection
 
             public void OnSurprise()
             {
-                Console.WriteLine("SURPRISE");
                 if(useMouse)
                 {
-                    mouse._ShouldRightClick = true;
+                    mouse.rightClick();
                 }
                 else
                 {
-                    Console.WriteLine("FOCUS LOCATION BAR");
                     selenium.FocusLocationBar();
                     //call faceplaywebdriver focuslocationbar
                     headCentered = false;
@@ -288,44 +277,33 @@ namespace Emotion_Detection
 
             public void checkInputs()
             {
-                if (/*InputSimulator.IsKeyDown(VirtualKeyCode.UP) || */y <= upLimit)
+                if (y <= upLimit)
                 {
                     OnHeadUp();
                 }
-                else
-                {
-                    OnHeadCenter();
-                }
 
-                if (/*InputSimulator.IsKeyDown(VirtualKeyCode.DOWN) || */y >= downLimit)
+                if (y >= downLimit)
                 {
                     OnHeadDown();
                 }
-                else
-                {
-                    OnHeadCenter();
-                }
 
-                if (/*InputSimulator.IsKeyDown(VirtualKeyCode.LEFT) || */x >= leftLimit)
+                if (x >= leftLimit)
                 {
                     OnHeadLeft();
                 }
-                else
+
+                if (x <= rightLimit)
+                {
+                    OnHeadRight();
+                }
+                
+                if(x < leftLimit && x > rightLimit && y > upLimit && y < downLimit)
                 {
                     OnHeadCenter();
                 }
 
-                if (/*InputSimulator.IsKeyDown(VirtualKeyCode.RIGHT) || */x <= rightLimit)
-                {
-                    OnHeadRight();
-                }
-                else
-                {
-                    OnHeadCenter();
-                }
                 if(shouldSmile)
                 {
-                    Console.WriteLine("SMILE");
                     if(!isSmiling)
                     {
                         OnSmile();
@@ -340,7 +318,6 @@ namespace Emotion_Detection
                 }
                 if(shouldNeutral)
                 {
-                   // Console.WriteLine("NEUTRAL");
                     OnNeutral();
                 }
                 /*if (InputSimulator.IsKeyDown(VirtualKeyCode.VK_1))

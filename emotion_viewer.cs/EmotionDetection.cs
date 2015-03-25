@@ -50,24 +50,10 @@ namespace Emotion_Detection
                 PXCMEmotion.EmotionData[] arrData = new PXCMEmotion.EmotionData[form.NUM_EMOTIONS];
                 if(ft.QueryAllEmotionData(i, arrData) >= pxcmStatus.PXCM_STATUS_NO_ERROR){
                     form.DrawLocation(arrData);
-                    Console.WriteLine("x: " + arrData[0].rectangle.x + " " + "y: " + arrData[0].rectangle.y);
+                    //Console.WriteLine("x: " + arrData[0].rectangle.x + " " + "y: " + arrData[0].rectangle.y);
                     Camera.x = arrData[0].rectangle.x;
                     Camera.y = arrData[0].rectangle.y;
-                    int maxEmote = 8;
-                    if(arrData[7].intensity > arrData[8].intensity)
-                    {
-                        maxEmote = 7;
-                    }
-
-                    if(maxEmote == 7)
-                    {
-                        Console.WriteLine("POSITIVE");
-                    }
-                    else
-                    {
-                        Console.WriteLine("NEGATIVE");
-                    }
-                    /*float maxIntense = arrData[4].intensity;
+                    float maxIntense = arrData[4].intensity;
                     int maxEmote = 4;
                     if(arrData[6].intensity > maxIntense)
                     {
@@ -97,11 +83,18 @@ namespace Emotion_Detection
                         Camera.shouldSmile = false;
                         Camera.shouldSurprise = false;
                         Camera.shouldNeutral = true;
-                    }*/
+                    }
+
+                    if(maxIntense < 0.7)
+                    {
+                        Camera.shouldSmile = false;
+                        Camera.shouldSurprise = false;
+                        Camera.shouldNeutral = true;
+                    }
                 }
                 else
                 {
-                    Camera.x = 150;
+                    Camera.x = 200;
                     Camera.y = 150;
                 }
             }
@@ -179,7 +172,7 @@ namespace Emotion_Detection
                 form.UpdateStatus("Init Failed");
                 sts = false;
             }
-            Camera.x = 150;
+            Camera.x = 200;
             Camera.y = 150;
             pp.Close();
             pp.Dispose();
