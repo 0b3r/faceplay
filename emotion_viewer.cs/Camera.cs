@@ -13,11 +13,25 @@ namespace Emotion_Detection
             public static Single yaw = 0;
             public static Single x = 200;
             public static Single y = 150;
+            public static float stopX = 0f;
+            public static float stopY = 0f;
+
+            public Single centerX = 0f;
+            public Single centerY = 0f;
+            public int iterationsX = 0;
+            public int iterationsY = 0;
+            public int currentTicks = 0;
+            public int configureTicks = 500;
+
+
             public static bool shouldSmile = false;
             public static bool shouldSurprise = false;
+            public static bool shouldConfigure = false;
+
             private bool isSmiling = false;
             private bool isSurprise = false;
             public static bool shouldNeutral = true;
+            public bool configureMode = false;
 
             private bool useMouse = true;
             private bool canUseMouse = true;
@@ -27,17 +41,17 @@ namespace Emotion_Detection
             private float downLimit = -20;
             private float leftLimit = -50;
             private float rightLimit = 50;
-            private float tiltLeftLimit = -30;
-            private float tiltRightLimit = 30;
+
+
             public System.Timers.Timer aTimer;
             mouseDriven mouse;
             Webdriver selenium;
 
-            public Camera(mouseDriven mou, Webdriver selen, bool mode, int cfgSens, float cfgUp, float cfgDown, float cfgLeft, float cfgRight, float cfgTiltLeft, float cfgTiltRight)
+            public Camera(mouseDriven mou, Webdriver selen, bool mode, int cfgSens)
             {
                 mouse = mou;
                 selenium = selen;
-                this.Configure();
+                //this.Configure();
                 Console.WriteLine("Camera constructor");
                 useMouse = mode;
                 if(!canUseMouse)
@@ -45,13 +59,6 @@ namespace Emotion_Detection
                     useMouse = false;
                 }
                 mouseSens = cfgSens;
-                upLimit = cfgUp;
-                downLimit = cfgDown;
-                leftLimit = cfgLeft;
-                rightLimit = cfgRight;
-                tiltLeftLimit = cfgTiltLeft;
-                tiltRightLimit = cfgTiltRight;
-
             }
 
             public void ChangeMode()
@@ -65,6 +72,14 @@ namespace Emotion_Detection
                     useMouse = false;
                 }
 
+            }
+
+            //This will also increment the iterations so that the iterations don't need to be updated outside of the function
+            public Single changeAverage(Single nextPoint, Single previousAverage, ref int iterations)
+            {
+                Single sum = nextPoint + (previousAverage * iterations);
+                iterations++;
+                return sum / iterations;
             }
 
             public void OnHeadCenter()
@@ -265,9 +280,30 @@ namespace Emotion_Detection
                 isSurprise = false;
             }
 
+            public void OnConfigure()
+            {
+                centerX = 0;
+                centerY = 0;
+                iterationsX = 0;
+                iterationsY = 0;
+                currentTicks = 0;
+                configureMode = true;
+            }
+
             public void Configure()
             {
+                //May want to make ticker static in Program and increment using that variable rather than this hardcode
+                if(useMouse)
+                {
+                    currentTicks++;
+                }
+                else
+                {
+                    currentTicks += 10;
+                }
 
+                centerX = changeAverage(x, centerX, ref iterationsX);
+                centerY = changeAverage(y, centerY, ref iterationsY);
             }
 
             public void exitProgram()
@@ -309,6 +345,7 @@ namespace Emotion_Detection
                         OnSmile();
                     }
                 }
+
                 if(shouldSurprise)
                 {
                     if(!isSurprise)
@@ -316,97 +353,42 @@ namespace Emotion_Detection
                         OnSurprise();
                     }
                 }
+
                 if(shouldNeutral)
                 {
                     OnNeutral();
                 }
-                /*if (InputSimulator.IsKeyDown(VirtualKeyCode.VK_1))
-                {
-                    _IsLeftClicking = true;
-                }
-                if (InputSimulator.IsKeyDown(VirtualKeyCode.VK_2))
-                {
-                    _IsRightClicking = true;
-                }
-                if (InputSimulator.IsKeyDown(VirtualKeyCode.VK_3))
-                {
-                    _ShouldDoubleClick = true;
-                }
-                else
-                {
-                    _ShouldDoubleClick = false;
-                }
-
-                if (!InputSimulator.IsKeyDown(VirtualKeyCode.VK_1) && _IsLeftClicking)
-                {
-                    _ShouldLeftClick = true;
-                    _IsLeftClicking = false;
-                }
-
-                if (!InputSimulator.IsKeyDown(VirtualKeyCode.VK_2) && _IsRightClicking)
-                {
-                    _ShouldRightClick = true;
-                    _IsRightClicking = false;
-                }*/
-
             }
 
             public void OnTimedEvent(Object source, ElapsedEventArgs e)
             {
-
                 // Console.WriteLine("PITCH: " + mouseDriven.pitch + " YAW: " + mouseDriven.yaw + " ROLL: " + mouseDriven.roll);
-
+                if(shouldConfigure)
+                {
+                    shouldConfigure = false;
+                    OnConfigure();
+                }
+                if(configureMode)
+                {
+                    Console.WriteLine(currentTicks);
+                    if(currentTicks >= configureTicks)
+                    {
+                        upLimit = centerY - 20;
+                        downLimit = centerY + 20;
+                        leftLimit = centerX + 20;
+                        rightLimit = centerX - 20;
+                        stopX = leftLimit - 1;
+                        stopY = upLimit + 1;
+                        configureMode = false;
+                        EmotionDetection.form.UpdateStatus("Streaming");
+                    }
+                    else
+                    {
+                        Configure();
+                        return;
+                    }
+                }
                 checkInputs();
-                /*if (_ShouldMouseDown && _ShouldMouseUp)
-                {
-                    Console.WriteLine("Cannot move mouse up and down at the same time.");
-                }
-                else if (_ShouldMouseDown)
-                {
-                    Cursor.Position = new Point(Cursor.Position.X, Cursor.Position.Y + mouseSens);
-                }
-                else if (_ShouldMouseUp)
-                {
-                    Cursor.Position = new Point(Cursor.Position.X, Cursor.Position.Y - mouseSens);
-                }
-
-                if (_ShouldMouseLeft && _ShouldMouseRight)
-                {
-                    Console.WriteLine("Cannot move mouse left and right at the same time.");
-                }
-                else if (_ShouldMouseLeft)
-                {
-                    Cursor.Position = new Point(Cursor.Position.X - mouseSens, Cursor.Position.Y);
-                }
-                else if (_ShouldMouseRight)
-                {
-                    Cursor.Position = new Point(Cursor.Position.X + mouseSens, Cursor.Position.Y);
-                }
-
-                if (_ShouldLeftClick && _ShouldDoubleClick)
-                {
-                    //NOTE: if someone wants to left click and double click at the same time, just double click
-                    Console.WriteLine("Attempted to double click and left click at the same time.  Default behavior is simply to left click.");
-                    doubleClick();
-                    _ShouldLeftClick = false;
-                    _ShouldDoubleClick = false;
-                }
-                else if (_ShouldDoubleClick)
-                {
-                    doubleClick();
-                    _ShouldDoubleClick = false;
-                }
-                else if (_ShouldLeftClick)
-                {
-                    leftClick();
-                    _ShouldLeftClick = false;
-                }
-
-                if (_ShouldRightClick)
-                {
-                    rightClick();
-                    _ShouldRightClick = false;
-                }*/
             }
         }
     }

@@ -9,12 +9,12 @@ namespace Emotion_Detection
     class EmotionDetection
     {
 
-        private MainForm form;
+        public static MainForm form;
         private bool disconnected = false;
 
-        public EmotionDetection(MainForm form)
+        public EmotionDetection(MainForm mform)
         {
-            this.form = form;
+            form = mform;
         }
 
         private bool DisplayDeviceConnection(bool state)
@@ -94,8 +94,8 @@ namespace Emotion_Detection
                 }
                 else
                 {
-                    Camera.x = 200;
-                    Camera.y = 150;
+                    Camera.x = Camera.stopY;
+                    Camera.y = Camera.stopY;
                 }
             }
         }
@@ -150,7 +150,8 @@ namespace Emotion_Detection
             form.UpdateStatus("Init Started");
             if (pp.Init())
             {
-                form.UpdateStatus("Streaming");
+                Camera.shouldConfigure = true;
+                form.UpdateStatus("Configuring");
 
                 while (!form.stop)
                 {
@@ -172,8 +173,8 @@ namespace Emotion_Detection
                 form.UpdateStatus("Init Failed");
                 sts = false;
             }
-            Camera.x = 200;
-            Camera.y = 150;
+            Camera.x = Camera.stopY;
+            Camera.y = Camera.stopY;
             pp.Close();
             pp.Dispose();
             if (sts) form.UpdateStatus("Stopped");
@@ -238,7 +239,8 @@ namespace Emotion_Detection
                 return;
             }
 
-            form.UpdateStatus("Streaming");
+            Camera.shouldConfigure = true;
+            form.UpdateStatus("Configuring");
             PXCMImage[] images = new PXCMImage[PXCMCapture.VideoStream.STREAM_LIMIT];
             PXCMScheduler.SyncPoint[] sps = new PXCMScheduler.SyncPoint[2];
             while (!form.stop)
@@ -264,8 +266,8 @@ namespace Emotion_Detection
             }
             PXCMImage.Dispose(images);
             PXCMScheduler.SyncPoint.Dispose(sps);
-            Camera.x = 150;
-            Camera.y = 150;
+            Camera.x = Camera.stopY;
+            Camera.y = Camera.stopY;
             capture.Dispose();
             emotionDet.Dispose();
             session.Dispose();

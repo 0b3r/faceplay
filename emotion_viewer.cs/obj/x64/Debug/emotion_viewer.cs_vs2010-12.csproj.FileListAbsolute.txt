@@ -27,8 +27,6 @@ C:\Users\rjcha_000\Documents\FacePlay\faceplay\emotion_viewer.cs\obj\x64\Debug\e
 C:\Users\rjcha_000\Documents\FacePlay\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs.pdb
 C:\Users\rjcha_000\Documents\FacePlay\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs_vs2010-12.csprojResolveAssemblyReference.cache
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Debug\emotion_viewer.cs.exe.config
-C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs.exe
-C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs.pdb
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Debug\emotion_viewer.cs.exe
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Debug\emotion_viewer.cs.pdb
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Debug\libpxcclr.dll
@@ -36,7 +34,9 @@ C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Debug\WebDrive
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Debug\WebDriver.Support.dll
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Debug\WebDriver.xml
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Debug\WebDriver.Support.xml
-C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs_vs2010-12.csprojResolveAssemblyReference.cache
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Debug\Emotion_Detection.MainForm.resources
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs.Properties.Resources.resources
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs_vs2010-12.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs.exe
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs.pdb
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Debug\emotion_viewer.cs_vs2010-12.csprojResolveAssemblyReference.cache

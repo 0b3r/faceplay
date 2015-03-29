@@ -26,9 +26,9 @@ namespace Emotion_Detection
             mouseDriven myMouse = new mouseDriven();
             Webdriver selen = new Webdriver("http://www.reddit.com");
 
-            bool mode = true;
+            bool mode = false;
             int timer = 1;
-            Camera cam = new Camera(myMouse, selen, mode, 1, 100, 180, 280, 190, 0, 0);
+            Camera cam = new Camera(myMouse, selen, mode, 1);
 
             bool setup = true;
 
