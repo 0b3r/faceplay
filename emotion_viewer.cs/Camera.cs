@@ -11,8 +11,9 @@ namespace Emotion_Detection
             public static Single pitch = 0;
             public static Single roll = 0;
             public static Single yaw = 0;
-            public static Single x = 200;
-            public static Single y = 150;
+            public static Single x = 0;
+            public static Single y = 0;
+            public static int timer = 1;
             public static float stopX = 0f;
             public static float stopY = 0f;
 
@@ -59,6 +60,10 @@ namespace Emotion_Detection
                     useMouse = false;
                 }
                 mouseSens = cfgSens;
+                if(!mode)
+                {
+                    timer = 100;
+                }
             }
 
             public void ChangeMode()
@@ -66,10 +71,32 @@ namespace Emotion_Detection
                 if (canUseMouse)
                 {
                     useMouse = !useMouse;
+                    if(useMouse)
+                    {
+                        timer = 1;
+                        aTimer = new System.Timers.Timer(timer);
+                        aTimer.Elapsed += OnTimedEvent;
+                        aTimer.AutoReset = true;
+                        Console.WriteLine("The timer should fire every {0} milliseconds.",
+                             aTimer.Interval);
+                        aTimer.Enabled = true;
+                    }
+                    else
+                    {
+                        timer = 100;
+                        aTimer = new System.Timers.Timer(timer);
+                        aTimer.Elapsed += OnTimedEvent;
+                        aTimer.AutoReset = true;
+                        Console.WriteLine("The timer should fire every {0} milliseconds.",
+                             aTimer.Interval);
+                        aTimer.Enabled = true;
+                    }
                 }
                 else
                 {
                     useMouse = false;
+                    timer = 100;
+                    aTimer = new System.Timers.Timer(timer);
                 }
 
             }

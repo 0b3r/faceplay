@@ -50,6 +50,7 @@ namespace Emotion_Detection
                 PXCMEmotion.EmotionData[] arrData = new PXCMEmotion.EmotionData[form.NUM_EMOTIONS];
                 if(ft.QueryAllEmotionData(i, arrData) >= pxcmStatus.PXCM_STATUS_NO_ERROR){
                     form.DrawLocation(arrData);
+
                     //Console.WriteLine("x: " + arrData[0].rectangle.x + " " + "y: " + arrData[0].rectangle.y);
                     Camera.x = arrData[0].rectangle.x;
                     Camera.y = arrData[0].rectangle.y;

@@ -26,18 +26,13 @@ namespace Emotion_Detection
             mouseDriven myMouse = new mouseDriven();
             Webdriver selen = new Webdriver("http://www.reddit.com");
 
-            bool mode = false;
-            int timer = 1;
+            bool mode = true;
+
             Camera cam = new Camera(myMouse, selen, mode, 1);
 
             bool setup = true;
-
-            if(!mode)
-            {
-                timer = 100;
-            }
             
-            cam.aTimer = new System.Timers.Timer(timer);
+            cam.aTimer = new System.Timers.Timer(Camera.timer);
             cam.aTimer.Elapsed += cam.OnTimedEvent;
             cam.aTimer.AutoReset = true;
             Console.WriteLine("The timer should fire every {0} milliseconds.",
