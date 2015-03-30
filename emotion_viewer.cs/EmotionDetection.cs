@@ -174,7 +174,7 @@ namespace Emotion_Detection
                 form.UpdateStatus("Init Failed");
                 sts = false;
             }
-            Camera.x = Camera.stopY;
+            Camera.x = Camera.stopX;
             Camera.y = Camera.stopY;
             pp.Close();
             pp.Dispose();
@@ -267,7 +267,7 @@ namespace Emotion_Detection
             }
             PXCMImage.Dispose(images);
             PXCMScheduler.SyncPoint.Dispose(sps);
-            Camera.x = Camera.stopY;
+            Camera.x = Camera.stopX;
             Camera.y = Camera.stopY;
             capture.Dispose();
             emotionDet.Dispose();

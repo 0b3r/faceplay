@@ -269,6 +269,16 @@ namespace Emotion_Detection
                 }
             }
 
+            public void OnContemptLeft()
+            {
+
+            }
+
+            public void OnContemptRight()
+            {
+
+            }
+
             public void OnSmile()
             {
                 if(useMouse)
@@ -297,7 +307,7 @@ namespace Emotion_Detection
                     //call faceplaywebdriver focuslocationbar
                     headCentered = false;
                 }
-                isSurprise = true;
+               isSurprise = true; 
                 shouldNeutral = false;
             }
 
@@ -406,6 +416,8 @@ namespace Emotion_Detection
                         rightLimit = centerX - 20;
                         stopX = leftLimit - 1;
                         stopY = upLimit + 1;
+                        x = centerX;
+                        y = centerY;
                         configureMode = false;
                         EmotionDetection.form.UpdateStatus("Streaming");
                     }
