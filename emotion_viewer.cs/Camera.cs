@@ -22,7 +22,7 @@ namespace Emotion_Detection
             public int iterationsX = 0;
             public int iterationsY = 0;
             public int currentTicks = 0;
-            public int configureTicks = 500;
+            public int configureTicks = 600;
 
 
             public static bool shouldSmile = false;
@@ -297,7 +297,7 @@ namespace Emotion_Detection
 
             public void OnSurprise()
             {
-                if(useMouse)
+                /*if(useMouse)
                 {
                     mouse.rightClick();
                 }
@@ -306,9 +306,10 @@ namespace Emotion_Detection
                     selenium.FocusLocationBar();
                     //call faceplaywebdriver focuslocationbar
                     headCentered = false;
-                }
+                }*/
+                ChangeMode();
                isSurprise = true; 
-                shouldNeutral = false;
+               shouldNeutral = false;
             }
 
             public void OnNeutral()
@@ -336,7 +337,7 @@ namespace Emotion_Detection
                 }
                 else
                 {
-                    currentTicks += 10;
+                    currentTicks += 5;
                 }
 
                 centerX = changeAverage(x, centerX, ref iterationsX);
@@ -420,6 +421,11 @@ namespace Emotion_Detection
                         y = centerY;
                         configureMode = false;
                         EmotionDetection.form.UpdateStatus("Streaming");
+                    }
+                    else if(currentTicks <= 100)
+                    {
+                        currentTicks++;
+                        return;
                     }
                     else
                     {
