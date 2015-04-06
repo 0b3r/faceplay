@@ -54,8 +54,15 @@ namespace Emotion_Detection
                     //Console.WriteLine("x: " + arrData[0].rectangle.x + " " + "y: " + arrData[0].rectangle.y);
                     Camera.x = arrData[0].rectangle.x;
                     Camera.y = arrData[0].rectangle.y;
-                    float maxIntense = arrData[4].intensity;
-                    int maxEmote = 4;
+                    float maxIntense = arrData[1].intensity;
+                    int maxEmote = 1;
+                    
+                    if (arrData[4].intensity > maxIntense)
+                    {
+                        maxIntense = arrData[4].intensity;
+                        maxEmote = 4;
+                    }
+
                     if(arrData[6].intensity > maxIntense)
                     {
                         maxIntense = arrData[6].intensity;
@@ -66,28 +73,42 @@ namespace Emotion_Detection
                         maxIntense = arrData[9].intensity;
                         maxEmote = 9;
                     }
-
-                    if(maxEmote == 4)
+                    //Contempt
+                    if(maxEmote == 1)
                     {
+                        Camera.shouldContempt = true;
+                        Camera.shouldSmile = false;
+                        Camera.shouldSurprise = false;
+                        Camera.shouldNeutral = false;
+                    }
+                    //Smile
+                    else if(maxEmote == 4)
+                    {
+                        Camera.shouldContempt = false;
                         Camera.shouldSmile = true;
                         Camera.shouldSurprise = false;
                         Camera.shouldNeutral = false;
                     }
+                    //Surprise
                     else if (maxEmote == 6)
                     {
+                        Camera.shouldContempt = false;
                         Camera.shouldSmile = false;
                         Camera.shouldSurprise = true;
                         Camera.shouldNeutral = false;
                     }
+                    //Neutral
                     else
                     {
+                        Camera.shouldContempt = false;
                         Camera.shouldSmile = false;
                         Camera.shouldSurprise = false;
                         Camera.shouldNeutral = true;
                     }
-
+                    //Not strong enough to say
                     if(maxIntense < 0.7)
                     {
+                        Camera.shouldContempt = false;
                         Camera.shouldSmile = false;
                         Camera.shouldSurprise = false;
                         Camera.shouldNeutral = true;
@@ -152,7 +173,7 @@ namespace Emotion_Detection
             if (pp.Init())
             {
                 Camera.shouldConfigure = true;
-                form.UpdateStatus("Configuring");
+                form.UpdateStatus("Calibrating");
 
                 while (!form.stop)
                 {
@@ -241,7 +262,7 @@ namespace Emotion_Detection
             }
 
             Camera.shouldConfigure = true;
-            form.UpdateStatus("Configuring");
+            form.UpdateStatus("Calibrating");
             PXCMImage[] images = new PXCMImage[PXCMCapture.VideoStream.STREAM_LIMIT];
             PXCMScheduler.SyncPoint[] sps = new PXCMScheduler.SyncPoint[2];
             while (!form.stop)

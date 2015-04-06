@@ -8,9 +8,6 @@ namespace Emotion_Detection
 {
         class Camera
         {
-            public static Single pitch = 0;
-            public static Single roll = 0;
-            public static Single yaw = 0;
             public static Single x = 0;
             public static Single y = 0;
             public static int timer = 1;
@@ -22,20 +19,21 @@ namespace Emotion_Detection
             public int iterationsX = 0;
             public int iterationsY = 0;
             public int currentTicks = 0;
-            public int configureTicks = 600;
+            public int configureTicks = 800;
 
 
             public static bool shouldSmile = false;
             public static bool shouldSurprise = false;
+            public static bool shouldContempt = false;
             public static bool shouldConfigure = false;
 
             private bool isSmiling = false;
             private bool isSurprise = false;
+            private bool isContempt = false;
             public static bool shouldNeutral = true;
             public bool configureMode = false;
 
             private bool useMouse = true;
-            private bool canUseMouse = true;
             private bool headCentered = true;
             private int mouseSens = 1;
             private float upLimit = 20;
@@ -55,10 +53,6 @@ namespace Emotion_Detection
                 //this.Configure();
                 Console.WriteLine("Camera constructor");
                 useMouse = mode;
-                if(!canUseMouse)
-                {
-                    useMouse = false;
-                }
                 mouseSens = cfgSens;
                 if(!mode)
                 {
@@ -68,37 +62,27 @@ namespace Emotion_Detection
 
             public void ChangeMode()
             {
-                if (canUseMouse)
+                useMouse = !useMouse;
+                if (useMouse)
                 {
-                    useMouse = !useMouse;
-                    if(useMouse)
-                    {
-                        timer = 1;
-                        aTimer = new System.Timers.Timer(timer);
-                        aTimer.Elapsed += OnTimedEvent;
-                        aTimer.AutoReset = true;
-                        Console.WriteLine("The timer should fire every {0} milliseconds.",
-                             aTimer.Interval);
-                        aTimer.Enabled = true;
-                    }
-                    else
-                    {
-                        timer = 100;
-                        aTimer = new System.Timers.Timer(timer);
-                        aTimer.Elapsed += OnTimedEvent;
-                        aTimer.AutoReset = true;
-                        Console.WriteLine("The timer should fire every {0} milliseconds.",
-                             aTimer.Interval);
-                        aTimer.Enabled = true;
-                    }
+                    timer = 1;
+                    aTimer = new System.Timers.Timer(timer);
+                    aTimer.Elapsed += OnTimedEvent;
+                    aTimer.AutoReset = true;
+                    Console.WriteLine("The timer should fire every {0} milliseconds.",
+                         aTimer.Interval);
+                    aTimer.Enabled = true;
                 }
                 else
                 {
-                    useMouse = false;
                     timer = 100;
                     aTimer = new System.Timers.Timer(timer);
+                    aTimer.Elapsed += OnTimedEvent;
+                    aTimer.AutoReset = true;
+                    Console.WriteLine("The timer should fire every {0} milliseconds.",
+                         aTimer.Interval);
+                    aTimer.Enabled = true;
                 }
-
             }
 
             //This will also increment the iterations so that the iterations don't need to be updated outside of the function
@@ -113,10 +97,10 @@ namespace Emotion_Detection
             {
                 if(useMouse)
                 {
-                    mouse._ShouldMouseUp = false;
+                    /*mouse._ShouldMouseUp = false;
                     mouse._ShouldMouseDown = false;
                     mouse._ShouldMouseLeft = false;
-                    mouse._ShouldMouseRight = false;
+                    mouse._ShouldMouseRight = false;*/
                 }
                 else
                 {
@@ -124,91 +108,18 @@ namespace Emotion_Detection
                 }
             }
 
-            public void OnHeadTurnLeft()
-            {
-                if(useMouse)
-                {
-                    mouse._ShouldMouseLeft = true;
-                    mouse.MoveMouseLeft();
-                }
-                else
-                {
-                    if(headCentered)
-                    {
-                        selenium.TabForward();
-                        //call faceplaywebdriver tabforward
-                        headCentered = false;
-                    }
-
-                }
-            }
-
-            public void OnHeadTurnRight()
+            public void OnHeadLeft()
             {
                 if (useMouse)
                 {
-                    mouse._ShouldMouseRight = true;
-                    mouse.MoveMouseRight();
+                    //mouse._ShouldMouseLeft = true;
+                    mouse.MoveMouseLeft();
                 }
                 else
                 {
                     if(headCentered)
                     {
                         selenium.TabBackward();
-                        //call faceplaywebdriver tabbackward
-                        headCentered = false;
-                    }
-                }
-            }
-
-            public void OnHeadTurnUp()
-            {
-                if (useMouse)
-                {
-                    mouse._ShouldMouseUp = true;
-                    mouse.MoveMouseUp();
-                }
-                else
-                {
-                    if(headCentered)
-                    {
-                        selenium.ScrollUp();
-                        //call faceplaywebdriver SCROLL UP
-                        headCentered = false;
-                    }
-                }
-            }
-
-            public void OnHeadTurnDown()
-            {
-                if (useMouse)
-                {
-                    mouse._ShouldMouseDown = true;
-                    mouse.MoveMouseDown();
-                }
-                else
-                {
-                    if(headCentered)
-                    {
-                        selenium.ScrollDown();
-                        //call faceplaywebdriver SCROLL DOWN
-                        headCentered = false;
-                    }
-                }
-            }
-
-            public void OnHeadLeft()
-            {
-                if (useMouse)
-                {
-                    mouse._ShouldMouseLeft = true;
-                    mouse.MoveMouseLeft();
-                }
-                else
-                {
-                    if(headCentered)
-                    {
-                        selenium.TabForward();
                         //call faceplaywebdriver tabforward
                         headCentered = false;
                     }
@@ -219,14 +130,14 @@ namespace Emotion_Detection
             {
                 if (useMouse)
                 {
-                    mouse._ShouldMouseRight = true;
+                    //mouse._ShouldMouseRight = true;
                     mouse.MoveMouseRight();
                 }
                 else
                 {
                     if(headCentered)
                     {
-                        selenium.TabBackward();
+                        selenium.TabForward();
                         //call faceplaywebdriver tabbackward
                         headCentered = false;
                     }
@@ -237,7 +148,7 @@ namespace Emotion_Detection
             {
                 if (useMouse)
                 {
-                    mouse._ShouldMouseUp = true;
+                    //mouse._ShouldMouseUp = true;
                     mouse.MoveMouseUp();
                 }
                 else
@@ -255,7 +166,7 @@ namespace Emotion_Detection
             {
                 if (useMouse)
                 {
-                    mouse._ShouldMouseDown = true;
+                    //mouse._ShouldMouseDown = true;
                     mouse.MoveMouseDown();
                 }
                 else
@@ -269,14 +180,20 @@ namespace Emotion_Detection
                 }
             }
 
-            public void OnContemptLeft()
+            public void OnContempt()
             {
-
-            }
-
-            public void OnContemptRight()
-            {
-
+                if (useMouse)
+                {
+                    mouse.rightClick();
+                }
+                else
+                {
+                    selenium.FocusLocationBar();
+                    //call faceplaywebdriver focuslocationbar
+                    headCentered = false;
+                }
+                isContempt = true;
+                shouldNeutral = false;
             }
 
             public void OnSmile()
@@ -287,7 +204,7 @@ namespace Emotion_Detection
                 }
                 else
                 {
-                    selenium.FocusLocationBar();
+                    selenium.Enter();
                     //call faceplaywebdriver focuslocationbar
                     headCentered = false;
                 }
@@ -297,17 +214,7 @@ namespace Emotion_Detection
 
             public void OnSurprise()
             {
-                /*if(useMouse)
-                {
-                    mouse.rightClick();
-                }
-                else
-                {
-                    selenium.FocusLocationBar();
-                    //call faceplaywebdriver focuslocationbar
-                    headCentered = false;
-                }*/
-                ChangeMode();
+               ChangeMode();
                isSurprise = true; 
                shouldNeutral = false;
             }
@@ -316,6 +223,7 @@ namespace Emotion_Detection
             {
                 isSmiling = false;
                 isSurprise = false;
+                isContempt = false;
             }
 
             public void OnConfigure()
@@ -344,11 +252,6 @@ namespace Emotion_Detection
                 centerY = changeAverage(y, centerY, ref iterationsY);
             }
 
-            public void exitProgram()
-            {
-                return;
-            }
-
             public void checkInputs()
             {
                 if (y <= upLimit)
@@ -374,6 +277,15 @@ namespace Emotion_Detection
                 if(x < leftLimit && x > rightLimit && y > upLimit && y < downLimit)
                 {
                     OnHeadCenter();
+                }
+
+                if (shouldContempt)
+                {
+                    Console.WriteLine("CONTEMPT");
+                    if (!isContempt)
+                    {
+                        OnContempt();
+                    }
                 }
 
                 if(shouldSmile)
@@ -409,6 +321,7 @@ namespace Emotion_Detection
                 if(configureMode)
                 {
                     Console.WriteLine(currentTicks);
+                    EmotionDetection.form.UpdateStatus("Calibrating: " + Math.Truncate(1.0*currentTicks/configureTicks * 100) + "%");
                     if(currentTicks >= configureTicks)
                     {
                         upLimit = centerY - 20;
@@ -422,7 +335,7 @@ namespace Emotion_Detection
                         configureMode = false;
                         EmotionDetection.form.UpdateStatus("Streaming");
                     }
-                    else if(currentTicks <= 100)
+                    else if(currentTicks <= 200)
                     {
                         currentTicks++;
                         return;

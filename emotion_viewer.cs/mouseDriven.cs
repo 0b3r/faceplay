@@ -17,7 +17,7 @@ public class mouseDriven
     //PITCH IS UP AND DOWN
     //ROLL IS TILT SIDEWAYS
     //YAW IS TURN LEFT/RIGHT
-    public static Single pitch = 0;
+    /*public static Single pitch = 0;
     public static Single roll = 0;
     public static Single yaw = 0;
     public static Single prevPitch = 0;
@@ -37,7 +37,7 @@ public class mouseDriven
     public bool _ShouldScrollUp = false;
     public bool _ShouldScrollDown = false;
     public bool _ShouldRun = true;
-    public System.Timers.Timer aTimer;
+    public System.Timers.Timer aTimer;*/
     public int mouseSens = 1;
 
     private const int MOUSEEVENTF_LEFTDOWN = 0x02;
