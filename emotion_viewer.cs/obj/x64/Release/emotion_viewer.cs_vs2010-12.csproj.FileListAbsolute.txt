@@ -1,0 +1,13 @@
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Release\emotion_viewer.cs.exe.config
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Release\emotion_viewer.cs.exe
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Release\emotion_viewer.cs.pdb
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Release\libpxcclr.dll
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Release\WebDriver.dll
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Release\WebDriver.Support.dll
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Release\WebDriver.xml
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\bin\x64\Release\WebDriver.Support.xml
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Release\Emotion_Detection.MainForm.resources
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs_vs2010-12.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs.exe
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs.pdb
