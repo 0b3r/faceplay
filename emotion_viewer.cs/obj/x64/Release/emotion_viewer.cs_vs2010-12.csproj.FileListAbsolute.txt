@@ -11,3 +11,4 @@ C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Release\emotio
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs_vs2010-12.csproj.GenerateResource.Cache
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs.exe
 C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs.pdb
+C:\Users\user\Documents\GitHub\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs_vs2010-12.csprojResolveAssemblyReference.cache
