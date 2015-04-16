@@ -1,0 +1,43 @@
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\bin\x64\Debug\face_tracking.cs.exe
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\bin\x64\Debug\face_tracking.cs.pdb
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\bin\x64\Debug\libpxcclr.dll
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\obj\x64\Debug\face_tracking.cs.MainForm.resources
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\obj\x64\Debug\face_tracking.cs.Properties.Resources.resources
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\obj\x64\Debug\face_tracking.cs_vs2010-12.csproj.GenerateResource.Cache
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\obj\x64\Debug\face_tracking.cs.exe
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\obj\x64\Debug\face_tracking.cs.pdb
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\obj\x64\Debug\face_tracking.cs_vs2010-12.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Intel\PCSDK\framework\CSharp\face_tracking.cs\bin\x64\Debug\InputSimulator.dll
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs.exe
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs.pdb
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs_vs2010-12.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs.MainForm.resources
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs_vs2010-12.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\face_tracking.cs.exe
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\face_tracking.cs.pdb
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\InputSimulator.dll
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\libpxcclr.dll
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.dll
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.Support.dll
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.pdb
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.xml
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.Support.pdb
+C:\Users\user\Documents\GitHub\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.Support.xml
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\bin\x64\Debug\face_tracking.cs.exe
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\bin\x64\Debug\face_tracking.cs.pdb
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\bin\x64\Debug\libpxcclr.dll
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.dll
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\bin\x64\Debug\WebDriver.xml
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs_vs2010-12.csprojResolveAssemblyReference.cache
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs.MainForm.resources
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs.Properties.Resources.resources
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs_vs2010-12.csproj.GenerateResource.Cache
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs.exe
+C:\Users\Aniket\Documents\EECS 481\faceplay\face_tracking.cs\obj\x64\Debug\face_tracking.cs.pdb
+C:\Users\user\Documents\GitHub\faceplay\archive_facetracking.cs\obj\x64\Debug\face_tracking.cs.exe
+C:\Users\user\Documents\GitHub\faceplay\archive_facetracking.cs\obj\x64\Debug\face_tracking.cs.pdb
+C:\Users\user\Documents\GitHub\faceplay\archive_facetracking.cs\obj\x64\Debug\face_tracking.cs_vs2010-12.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\faceplay\archive_facetracking.cs\obj\x64\Debug\face_tracking.cs.MainForm.resources
+C:\Users\user\Documents\GitHub\faceplay\archive_facetracking.cs\obj\x64\Debug\face_tracking.cs.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\faceplay\archive_facetracking.cs\obj\x64\Debug\face_tracking.cs_vs2010-12.csproj.GenerateResource.Cache
