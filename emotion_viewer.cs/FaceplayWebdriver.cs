@@ -19,9 +19,9 @@ namespace Emotion_Detection
 
         public Webdriver(String s)
         {
-            driver = new FirefoxDriver();
-            driver.Navigate().GoToUrl(s);
-            jse = (IJavaScriptExecutor)driver;
+            //driver = new FirefoxDriver();
+            //driver.Navigate().GoToUrl(s);
+            //jse = (IJavaScriptExecutor)driver;
         }
 
         IAction enterAction = null;

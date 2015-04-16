@@ -14,8 +14,8 @@ namespace Emotion_Detection
             public static float stopX = 0f;
             public static float stopY = 0f;
 
-            public Single centerX = 0f;
-            public Single centerY = 0f;
+            public static Single centerX = 0f;
+            public static Single centerY = 0f;
             public int iterationsX = 0;
             public int iterationsY = 0;
             public int currentTicks = 0;
@@ -26,16 +26,26 @@ namespace Emotion_Detection
             public static bool shouldSurprise = false;
             public static bool shouldContempt = false;
             public static bool shouldConfigure = false;
+            public static bool updateMode = false;
+            public static bool nearMode = true;
 
             private bool isSmiling = false;
             private bool isSurprise = false;
             private bool isContempt = false;
             public static bool shouldNeutral = true;
-            public bool configureMode = false;
+            public static bool configureMode = false;
+
+            private bool locked = false;
 
             private bool useMouse = true;
             private bool headCentered = true;
-            private int mouseSens = 1;
+            public static int mouseSens = 1;
+
+            public static float upNear = 10;
+            public static float upFar = 20;
+            public static float rightNear = 10;
+            public static float rightFar = 20;
+
             private float upLimit = 20;
             private float downLimit = -20;
             private float leftLimit = -50;
@@ -214,13 +224,17 @@ namespace Emotion_Detection
 
             public void OnSurprise()
             {
-               ChangeMode();
+               mouse.middleClickDown();
                isSurprise = true; 
                shouldNeutral = false;
             }
 
             public void OnNeutral()
             {
+                if(isSurprise)
+                {
+                    mouse.middleClickUp();
+                }
                 isSmiling = false;
                 isSurprise = false;
                 isContempt = false;
@@ -312,6 +326,10 @@ namespace Emotion_Detection
 
             public void OnTimedEvent(Object source, ElapsedEventArgs e)
             {
+                if(locked)
+                {
+                    return;
+                }
                 // Console.WriteLine("PITCH: " + mouseDriven.pitch + " YAW: " + mouseDriven.yaw + " ROLL: " + mouseDriven.roll);
                 if(shouldConfigure)
                 {
@@ -324,10 +342,20 @@ namespace Emotion_Detection
                     EmotionDetection.form.UpdateStatus("Calibrating: " + Math.Truncate(1.0*currentTicks/configureTicks * 100) + "%");
                     if(currentTicks >= configureTicks)
                     {
-                        upLimit = centerY - 20;
-                        downLimit = centerY + 20;
-                        leftLimit = centerX + 20;
-                        rightLimit = centerX - 20;
+                        if(nearMode)
+                        {
+                            upLimit = centerY - upNear;
+                            downLimit = centerY + upNear;
+                            leftLimit = centerX + rightNear;
+                            rightLimit = centerX - rightNear;
+                        }
+                        else
+                        {
+                            upLimit = centerY - upFar;
+                            downLimit = centerY + upFar;
+                            leftLimit = centerX + rightFar;
+                            rightLimit = centerX - rightFar;
+                        }
                         stopX = leftLimit - 1;
                         stopY = upLimit + 1;
                         x = centerX;
@@ -346,6 +374,25 @@ namespace Emotion_Detection
                         return;
                     }
                 }
+                if(updateMode)
+                {
+                    if (nearMode)
+                    {
+                        upLimit = centerY - upNear;
+                        downLimit = centerY + upNear;
+                        leftLimit = centerX + rightNear;
+                        rightLimit = centerX - rightNear;
+                    }
+                    else
+                    {
+                        upLimit = centerY - upFar;
+                        downLimit = centerY + upFar;
+                        leftLimit = centerX + rightFar;
+                        rightLimit = centerX - rightFar;
+                    }
+                    updateMode = false;
+                }
+
                 checkInputs();
             }
         }

@@ -228,6 +228,24 @@ namespace Emotion_Detection
         {
             Panel2.Invoke(new UpdatePanelDelegate(delegate() 
                 {
+                    if (Mirror.Checked)
+                    {
+                        lock (this)
+                        {
+                            if (bitmap != null)
+                                bitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                        }
+                    }
+                    if(nearMode.Checked)
+                    {
+                        Camera.nearMode = true;
+                        Camera.updateMode = true;
+                    }
+                    else
+                    {
+                        Camera.nearMode = false;
+                        Camera.updateMode = true;
+                    }
                     Panel2.Invalidate();
                 }));
         }

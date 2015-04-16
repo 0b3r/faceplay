@@ -49,6 +49,26 @@ namespace Emotion_Detection
                 /* Retrieve emotionDet location data */
                 PXCMEmotion.EmotionData[] arrData = new PXCMEmotion.EmotionData[form.NUM_EMOTIONS];
                 if(ft.QueryAllEmotionData(i, arrData) >= pxcmStatus.PXCM_STATUS_NO_ERROR){
+
+                    PXCMEmotion.EmotionData[] copyData = new PXCMEmotion.EmotionData[form.NUM_EMOTIONS];
+                    if(Camera.nearMode)
+                    {
+                        copyData[0].rectangle.x = (uint)Camera.centerX - (uint) Camera.rightNear;
+                        copyData[0].rectangle.y = (uint)Camera.centerY - (uint) Camera.upNear;
+                        copyData[0].rectangle.w = arrData[0].rectangle.w + (uint) (2*Camera.rightNear);
+                        copyData[0].rectangle.h = arrData[0].rectangle.h + (uint)(2 * Camera.upNear);
+                    }
+                    else
+                    {
+                        copyData[0].rectangle.x = (uint)Camera.centerX - (uint)Camera.rightFar;
+                        copyData[0].rectangle.y = (uint)Camera.centerY - (uint)Camera.upFar;
+                        copyData[0].rectangle.w = arrData[0].rectangle.w + (uint)(2 * Camera.rightFar);
+                        copyData[0].rectangle.h = arrData[0].rectangle.h + (uint)(2 * Camera.upFar);
+                    }
+                    if(!Camera.configureMode)
+                    {
+                        form.DrawLocation(copyData);
+                    }
                     form.DrawLocation(arrData);
 
                     //Console.WriteLine("x: " + arrData[0].rectangle.x + " " + "y: " + arrData[0].rectangle.y);

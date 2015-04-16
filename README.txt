@@ -1,5 +1,7 @@
 Build and Runtime Instructions:
 
+Find the build on: https://github.com/majohns/faceplay/
+
 There should be 2 release builds located in: faceplay\emotion_viewer.cs\bin\x64\Release.
 
 faceplay_mouse is initialized as the mouse-driven experience.
