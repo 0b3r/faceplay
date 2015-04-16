@@ -114,7 +114,8 @@ namespace Emotion_Detection
             MainMenu.Enabled = false;
             Start.Enabled = false;
             Stop.Enabled = true;
-
+            Camera.shouldStopConfig = false;
+            Camera.stopped = false;
             stop = false;
             System.Threading.Thread thread = new System.Threading.Thread(DoTracking);
             thread.Start();
@@ -125,13 +126,13 @@ namespace Emotion_Detection
         private void DoTracking()
         {
             EmotionDetection ft = new EmotionDetection(this);
-            if (simpleToolStripMenuItem.Checked)
+            //if (simpleToolStripMenuItem.Checked)
             {
                 ft.SimplePipeline();
             }
-            else
+            //else
             {
-                ft.AdvancedPipeline();
+            //    ft.AdvancedPipeline();
             }
             this.Invoke(new DoTrackingCompleted(
                 delegate
@@ -186,6 +187,8 @@ namespace Emotion_Detection
         private void Stop_Click(object sender, EventArgs e)
         {
             stop = true;
+            Camera.shouldStopConfig = true;
+            Camera.stopped = true;
         }
 
         public void DisplayBitmap(Bitmap picture)
@@ -262,14 +265,14 @@ namespace Emotion_Detection
 
         private void Live_Click(object sender, EventArgs e)
         {
-            Playback.Checked = Record.Checked = false;
-            Live.Checked = true;
+        //    Playback.Checked = Record.Checked = false;
+        //   Live.Checked = true;
         }
 
         private void Playback_Click(object sender, EventArgs e)
         {
-            Live.Checked = Record.Checked = false;
-            Playback.Checked = true;
+        //    Live.Checked = Record.Checked = false;
+        //    Playback.Checked = true;
 
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "All files (*.*)|*.*";
@@ -280,13 +283,13 @@ namespace Emotion_Detection
 
         public bool GetPlaybackState()
         {
-            return Playback.Checked;
+            return false;//return Playback.Checked;
         }
 
         private void Record_Click(object sender, EventArgs e)
         {
-            Live.Checked = Playback.Checked = false;
-            Record.Checked = true;
+            //Live.Checked = Playback.Checked = false;
+            //Record.Checked = true;
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "All files (*.*)|*.*";
@@ -297,7 +300,7 @@ namespace Emotion_Detection
 
         public bool GetRecordState()
         {
-            return Record.Checked;
+            return false;// return Record.Checked;
         }
 
         public void DrawLocation(PXCMEmotion.EmotionData[] data)
@@ -310,7 +313,7 @@ namespace Emotion_Detection
                 Brush brush = new SolidBrush(Color.Red);
                 Font font = new Font(Font.FontFamily, 11, FontStyle.Bold);
                 Brush brushTxt = new SolidBrush(Color.Cyan);
-                if (Location.Checked)
+                //if (Location.Checked)
                 {
                     Point[] points4 = new Point[]{
                         new Point((int)data[0].rectangle.x,(int)data[0].rectangle.y),

@@ -21,7 +21,7 @@ namespace Emotion_Detection
             public int currentTicks = 0;
             public int configureTicks = 800;
 
-
+            public static bool shouldStopConfig = false;
             public static bool shouldSmile = false;
             public static bool shouldSurprise = false;
             public static bool shouldContempt = false;
@@ -34,6 +34,7 @@ namespace Emotion_Detection
             private bool isContempt = false;
             public static bool shouldNeutral = true;
             public static bool configureMode = false;
+            public static bool stopped = false;
 
             private bool locked = false;
 
@@ -224,17 +225,14 @@ namespace Emotion_Detection
 
             public void OnSurprise()
             {
-               mouse.middleClickDown();
+                locked = !locked;
+               //mouse.middleClickDown();
                isSurprise = true; 
                shouldNeutral = false;
             }
-
+            
             public void OnNeutral()
             {
-                if(isSurprise)
-                {
-                    mouse.middleClickUp();
-                }
                 isSmiling = false;
                 isSurprise = false;
                 isContempt = false;
@@ -268,6 +266,24 @@ namespace Emotion_Detection
 
             public void checkInputs()
             {
+                if (shouldSurprise)
+                {
+                    if (!isSurprise)
+                    {
+                        OnSurprise();
+                    }
+                }
+
+                if (shouldNeutral)
+                {
+                    OnNeutral();
+                }
+
+                if(locked)
+                {
+                    return;
+                }
+
                 if (y <= upLimit)
                 {
                     OnHeadUp();
@@ -309,38 +325,22 @@ namespace Emotion_Detection
                         OnSmile();
                     }
                 }
-
-                if(shouldSurprise)
-                {
-                    if(!isSurprise)
-                    {
-                        OnSurprise();
-                    }
-                }
-
-                if(shouldNeutral)
-                {
-                    OnNeutral();
-                }
             }
 
             public void OnTimedEvent(Object source, ElapsedEventArgs e)
             {
-                if(locked)
-                {
-                    return;
-                }
                 // Console.WriteLine("PITCH: " + mouseDriven.pitch + " YAW: " + mouseDriven.yaw + " ROLL: " + mouseDriven.roll);
                 if(shouldConfigure)
                 {
                     shouldConfigure = false;
                     OnConfigure();
                 }
+
                 if(configureMode)
                 {
                     Console.WriteLine(currentTicks);
                     EmotionDetection.form.UpdateStatus("Calibrating: " + Math.Truncate(1.0*currentTicks/configureTicks * 100) + "%");
-                    if(currentTicks >= configureTicks)
+                    if(currentTicks >= configureTicks || shouldStopConfig)
                     {
                         if(nearMode)
                         {
@@ -362,6 +362,11 @@ namespace Emotion_Detection
                         y = centerY;
                         configureMode = false;
                         EmotionDetection.form.UpdateStatus("Streaming");
+                        if (shouldStopConfig)
+                        {
+                            EmotionDetection.form.UpdateStatus("Stopped");
+                            shouldStopConfig = false;
+                        }
                     }
                     else if(currentTicks <= 200)
                     {
@@ -392,7 +397,10 @@ namespace Emotion_Detection
                     }
                     updateMode = false;
                 }
-
+                if(stopped)
+                {
+                    return;
+                }
                 checkInputs();
             }
         }

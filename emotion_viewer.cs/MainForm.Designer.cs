@@ -33,19 +33,11 @@
             this.sourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
-            this.PipelineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.simpleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Location = new System.Windows.Forms.CheckBox();
             this.Status2 = new System.Windows.Forms.StatusStrip();
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.Scale2 = new System.Windows.Forms.CheckBox();
             this.Panel2 = new System.Windows.Forms.PictureBox();
             this.Mirror = new System.Windows.Forms.CheckBox();
-            this.Live = new System.Windows.Forms.ToolStripMenuItem();
-            this.Playback = new System.Windows.Forms.ToolStripMenuItem();
-            this.Record = new System.Windows.Forms.ToolStripMenuItem();
-            this.modeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nearMode = new System.Windows.Forms.CheckBox();
             this.MainMenu.SuspendLayout();
             this.Status2.SuspendLayout();
@@ -91,55 +83,13 @@
             // 
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sourceToolStripMenuItem,
-            this.moduleToolStripMenuItem,
-            this.PipelineToolStripMenuItem,
-            this.modeToolStripMenuItem});
+            this.moduleToolStripMenuItem});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.MainMenu.Size = new System.Drawing.Size(666, 24);
             this.MainMenu.TabIndex = 0;
             this.MainMenu.Text = "MainMenu";
-            // 
-            // PipelineToolStripMenuItem
-            // 
-            this.PipelineToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.PipelineToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.simpleToolStripMenuItem,
-            this.advancedToolStripMenuItem});
-            this.PipelineToolStripMenuItem.Name = "PipelineToolStripMenuItem";
-            this.PipelineToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.PipelineToolStripMenuItem.Text = "Pipeline";
-            // 
-            // simpleToolStripMenuItem
-            // 
-            this.simpleToolStripMenuItem.Checked = true;
-            this.simpleToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.simpleToolStripMenuItem.Name = "simpleToolStripMenuItem";
-            this.simpleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.simpleToolStripMenuItem.Text = "Simple";
-            this.simpleToolStripMenuItem.Click += new System.EventHandler(this.simpleToolStripMenuItem_Click);
-            // 
-            // advancedToolStripMenuItem
-            // 
-            this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
-            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.advancedToolStripMenuItem.Text = "Advanced";
-            this.advancedToolStripMenuItem.Click += new System.EventHandler(this.advancedToolStripMenuItem_Click);
-            // 
-            // Location
-            // 
-            this.Location.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Location.AutoSize = true;
-            this.Location.Checked = true;
-            this.Location.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Location.Location = new System.Drawing.Point(577, 53);
-            this.Location.Name = "Location";
-            this.Location.Size = new System.Drawing.Size(67, 17);
-            this.Location.TabIndex = 19;
-            this.Location.Text = "Location";
-            this.Location.UseVisualStyleBackColor = true;
             // 
             // Status2
             // 
@@ -190,45 +140,12 @@
             this.Mirror.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Mirror.AutoSize = true;
-            this.Mirror.Location = new System.Drawing.Point(577, 76);
+            this.Mirror.Location = new System.Drawing.Point(577, 50);
             this.Mirror.Name = "Mirror";
             this.Mirror.Size = new System.Drawing.Size(52, 17);
             this.Mirror.TabIndex = 28;
             this.Mirror.Text = "Mirror";
             this.Mirror.UseVisualStyleBackColor = true;
-            // 
-            // Live
-            // 
-            this.Live.Checked = true;
-            this.Live.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Live.Name = "Live";
-            this.Live.Size = new System.Drawing.Size(152, 22);
-            this.Live.Text = "Live";
-            this.Live.Click += new System.EventHandler(this.Live_Click);
-            // 
-            // Playback
-            // 
-            this.Playback.Name = "Playback";
-            this.Playback.Size = new System.Drawing.Size(152, 22);
-            this.Playback.Text = "Playback";
-            this.Playback.Click += new System.EventHandler(this.Playback_Click);
-            // 
-            // Record
-            // 
-            this.Record.Name = "Record";
-            this.Record.Size = new System.Drawing.Size(152, 22);
-            this.Record.Text = "Record";
-            this.Record.Click += new System.EventHandler(this.Record_Click);
-            // 
-            // modeToolStripMenuItem
-            // 
-            this.modeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Live,
-            this.Playback,
-            this.Record});
-            this.modeToolStripMenuItem.Name = "modeToolStripMenuItem";
-            this.modeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.modeToolStripMenuItem.Text = "Mode";
             // 
             // nearMode
             // 
@@ -237,7 +154,7 @@
             this.nearMode.AutoSize = true;
             this.nearMode.Checked = true;
             this.nearMode.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.nearMode.Location = new System.Drawing.Point(577, 99);
+            this.nearMode.Location = new System.Drawing.Point(577, 73);
             this.nearMode.Name = "nearMode";
             this.nearMode.Size = new System.Drawing.Size(79, 17);
             this.nearMode.TabIndex = 29;
@@ -254,7 +171,6 @@
             this.Controls.Add(this.Panel2);
             this.Controls.Add(this.Scale2);
             this.Controls.Add(this.Status2);
-            this.Controls.Add(this.Location);
             this.Controls.Add(this.Stop);
             this.Controls.Add(this.Start);
             this.Controls.Add(this.MainMenu);
@@ -281,19 +197,11 @@
         private System.Windows.Forms.ToolStripMenuItem sourceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem moduleToolStripMenuItem;
         private System.Windows.Forms.MenuStrip MainMenu;
-        private System.Windows.Forms.CheckBox Location;
         private System.Windows.Forms.StatusStrip Status2;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
         private System.Windows.Forms.CheckBox Scale2;
         private System.Windows.Forms.PictureBox Panel2;
-        private System.Windows.Forms.ToolStripMenuItem PipelineToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem simpleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem advancedToolStripMenuItem;
         private System.Windows.Forms.CheckBox Mirror;
-        private System.Windows.Forms.ToolStripMenuItem modeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem Live;
-        private System.Windows.Forms.ToolStripMenuItem Playback;
-        private System.Windows.Forms.ToolStripMenuItem Record;
         private System.Windows.Forms.CheckBox nearMode;
     }
 }

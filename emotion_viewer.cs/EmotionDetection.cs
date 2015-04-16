@@ -219,7 +219,10 @@ namespace Emotion_Detection
             Camera.y = Camera.stopY;
             pp.Close();
             pp.Dispose();
-            if (sts) form.UpdateStatus("Stopped");
+            if (sts)
+            {
+                form.UpdateStatus("Stopped");
+            }
         }
 
         public void AdvancedPipeline()
