@@ -12,8 +12,9 @@ Find the build on: https://github.com/majohns/faceplay/
 
 There should be a release build located in: faceplay\emotion_viewer.cs\bin\x64\Release.
 
-If you cannot run the standalone builds, try building by opening the project in Visual Studio through the project file:
-faceplay\emotion_viewer.cs\emotion_viewer.cs_vs2010-12
+The project has been set up so that pressing start will create a release build.
+
+To build the project, press the start button.  It should build a release version to the bin/x64 folder.
 
 If there are symbol-loading issues when building/running, please contact any of:
 
