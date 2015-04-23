@@ -189,6 +189,8 @@ namespace Emotion_Detection
             stop = true;
             Camera.shouldStopConfig = true;
             Camera.stopped = true;
+            checkBox1.Checked = false;
+            this.TopMost = checkBox1.Checked;
         }
 
         public void DisplayBitmap(Bitmap picture)
@@ -231,6 +233,7 @@ namespace Emotion_Detection
         {
             Panel2.Invoke(new UpdatePanelDelegate(delegate() 
                 {
+                    this.TopMost = checkBox1.Checked;
                     if (Mirror.Checked)
                     {
                         lock (this)
@@ -371,6 +374,11 @@ namespace Emotion_Detection
         public string GetFileName()
         {
             return filename;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            this.TopMost = checkBox1.Checked;
         }
 
     }

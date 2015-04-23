@@ -39,6 +39,7 @@
             this.Panel2 = new System.Windows.Forms.PictureBox();
             this.Mirror = new System.Windows.Forms.CheckBox();
             this.nearMode = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.MainMenu.SuspendLayout();
             this.Status2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Panel2)).BeginInit();
@@ -161,11 +162,27 @@
             this.nearMode.Text = "Near Mode";
             this.nearMode.UseVisualStyleBackColor = true;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(577, 96);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(62, 17);
+            this.checkBox1.TabIndex = 30;
+            this.checkBox1.Text = "On Top";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 463);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.nearMode);
             this.Controls.Add(this.Mirror);
             this.Controls.Add(this.Panel2);
@@ -203,5 +220,6 @@
         private System.Windows.Forms.PictureBox Panel2;
         private System.Windows.Forms.CheckBox Mirror;
         private System.Windows.Forms.CheckBox nearMode;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
