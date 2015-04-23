@@ -48,7 +48,7 @@
             // Start
             // 
             this.Start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Start.Location = new System.Drawing.Point(577, 150);
+            this.Start.Location = new System.Drawing.Point(229, 150);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(80, 23);
             this.Start.TabIndex = 2;
@@ -60,7 +60,7 @@
             // 
             this.Stop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Stop.Enabled = false;
-            this.Stop.Location = new System.Drawing.Point(577, 179);
+            this.Stop.Location = new System.Drawing.Point(229, 179);
             this.Stop.Name = "Stop";
             this.Stop.Size = new System.Drawing.Size(80, 23);
             this.Stop.TabIndex = 3;
@@ -88,7 +88,7 @@
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.MainMenu.Size = new System.Drawing.Size(666, 24);
+            this.MainMenu.Size = new System.Drawing.Size(318, 24);
             this.MainMenu.TabIndex = 0;
             this.MainMenu.Text = "MainMenu";
             // 
@@ -97,9 +97,9 @@
             this.Status2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StatusLabel});
             this.Status2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.Status2.Location = new System.Drawing.Point(0, 443);
+            this.Status2.Location = new System.Drawing.Point(0, 224);
             this.Status2.Name = "Status2";
-            this.Status2.Size = new System.Drawing.Size(666, 20);
+            this.Status2.Size = new System.Drawing.Size(318, 20);
             this.Status2.TabIndex = 25;
             this.Status2.Text = "Status2";
             // 
@@ -115,7 +115,7 @@
             this.Scale2.AutoSize = true;
             this.Scale2.Checked = true;
             this.Scale2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Scale2.Location = new System.Drawing.Point(577, 27);
+            this.Scale2.Location = new System.Drawing.Point(229, 27);
             this.Scale2.Name = "Scale2";
             this.Scale2.Size = new System.Drawing.Size(53, 17);
             this.Scale2.TabIndex = 26;
@@ -132,7 +132,7 @@
             this.Panel2.InitialImage = null;
             this.Panel2.Location = new System.Drawing.Point(12, 27);
             this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(559, 406);
+            this.Panel2.Size = new System.Drawing.Size(211, 187);
             this.Panel2.TabIndex = 27;
             this.Panel2.TabStop = false;
             // 
@@ -141,7 +141,7 @@
             this.Mirror.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Mirror.AutoSize = true;
-            this.Mirror.Location = new System.Drawing.Point(577, 50);
+            this.Mirror.Location = new System.Drawing.Point(229, 50);
             this.Mirror.Name = "Mirror";
             this.Mirror.Size = new System.Drawing.Size(52, 17);
             this.Mirror.TabIndex = 28;
@@ -155,7 +155,7 @@
             this.nearMode.AutoSize = true;
             this.nearMode.Checked = true;
             this.nearMode.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.nearMode.Location = new System.Drawing.Point(577, 73);
+            this.nearMode.Location = new System.Drawing.Point(229, 73);
             this.nearMode.Name = "nearMode";
             this.nearMode.Size = new System.Drawing.Size(79, 17);
             this.nearMode.TabIndex = 29;
@@ -169,7 +169,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(577, 96);
+            this.checkBox1.Location = new System.Drawing.Point(229, 96);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(62, 17);
             this.checkBox1.TabIndex = 30;
@@ -181,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 463);
+            this.ClientSize = new System.Drawing.Size(318, 244);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.nearMode);
             this.Controls.Add(this.Mirror);

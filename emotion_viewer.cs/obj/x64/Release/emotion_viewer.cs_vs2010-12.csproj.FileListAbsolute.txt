@@ -27,3 +27,16 @@ C:\Users\rjcha_000\Documents\FacePlay\faceplay\emotion_viewer.cs\obj\x64\Release
 C:\Users\rjcha_000\Documents\FacePlay\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs.exe
 C:\Users\rjcha_000\Documents\FacePlay\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs.pdb
 C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\bin\x64\Release\emotion_viewer.cs.exe.config
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\bin\x64\Release\emotion_viewer.cs.exe
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\bin\x64\Release\emotion_viewer.cs.pdb
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\bin\x64\Release\libpxcclr.dll
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\bin\x64\Release\WebDriver.dll
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\bin\x64\Release\WebDriver.Support.dll
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\bin\x64\Release\WebDriver.xml
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\bin\x64\Release\WebDriver.Support.xml
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs_vs2010-12.csprojResolveAssemblyReference.cache
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\obj\x64\Release\Emotion_Detection.MainForm.resources
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs.Properties.Resources.resources
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs_vs2010-12.csproj.GenerateResource.Cache
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs.exe
+C:\Users\Aniket\Documents\EECS 481\faceplay\emotion_viewer.cs\obj\x64\Release\emotion_viewer.cs.pdb
