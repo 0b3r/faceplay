@@ -229,6 +229,14 @@ namespace Emotion_Detection
                //mouse.middleClickDown();
                isSurprise = true; 
                shouldNeutral = false;
+                if(locked)
+                {
+                    EmotionDetection.form.UpdateStatus("Locked");
+                }
+                else
+                {
+                    EmotionDetection.form.UpdateStatus("Streaming");
+                }
             }
             
             public void OnNeutral()
