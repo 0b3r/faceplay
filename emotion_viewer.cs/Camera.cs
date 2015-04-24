@@ -348,6 +348,7 @@ namespace Emotion_Detection
                 {
                     Console.WriteLine(currentTicks);
                     EmotionDetection.form.UpdateStatus("Calibrating: " + Math.Truncate(1.0*currentTicks/configureTicks * 100) + "%");
+                    locked = false;
                     if(currentTicks >= configureTicks || shouldStopConfig)
                     {
                         if(nearMode)
